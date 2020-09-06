@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Cotizacion Nº 01</title>
+    <title>Solicitante N° {{$solicitantes->id}}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
 .clearfix:after {
@@ -66,14 +66,7 @@ h1 {
 table tr:nth-child(2n-1) td {
   background: #E9F43A;
 }
-
-/*  table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-bottom: 20px;
-}
-
+/* 
 table tr:nth-child(2n-1) td {
   background: #E9F43A;
 }
@@ -81,45 +74,6 @@ table tr:nth-child(2n-1) td {
 table tr:nth-child(2n) td {
   background: #000;
   color: #ffff;
-}
-
-table th,
-table td {
-  text-align: center;
-}
-
-table th {
-  padding: 5px 20px;
-  color: #5D6975;
-  white-space: nowrap;        
-  font-weight: normal;
-}
-
-table .service,
-table .desc {
-  text-align: left;
-}
-
-table td {
-  padding: 10px;
-  text-align: left;
-  vertical-align: top;
-}
-
-table td.service,
-table td.desc {
-  vertical-align: top;
-}
-
-table td.unit,
-table td.qty,
-table td.total {
-  font-size: 1.2em;
-  text-align: center;
-}
-
-table td.grand {
-  border-top: 1px solid #5D6975;;
 } */ 
 
 #notices .notice {
@@ -151,11 +105,10 @@ footer {
       <div id="company" class="clearfix">
         <div>Lima, 28 de Noviembre del 2020</div>
       </div>
-      <h2 style="text-align:center;">COTIZACION Nº 01 LAB 06</h2>
+      <h2 style="text-align:center;">COTIZACION Nº{{solicitantes->id}}</h2>
       <div id="project">
         <div><span>Fecha</span> Lima, 28 de Noviembre del 2020</div>
-        <div><span>DUE DATE</span> September 17, 2015</div>
-      </div>
+        </div>
     </header>
     <main>
     <table border="1" class="table table-striped">
@@ -167,53 +120,6 @@ footer {
         <td width="20%">RAZON SOCIAL <br> RUC <br> DIRECCION </td> <td>ABB. SAC <br> 39393939 <br> lima </td> <td width="18%">RAZON SOCIAL <br> RUC <br> DIRECCION </td> <td>UNIVERSIDAD NACIONAL DE INGENIERIA <br> 18181881 <br> RIMAC LIMA</td> 
       </tr>
     </table>
-      <table border="1" class="table table-striped">
-        <thead>
-          <tr>
-            <th class="service">ITEM</th>
-            <th class="desc">DESCRIPCION</th>
-            <th>NOMBRE DEL CURSO</th>
-            <th>PRECIO</th>
-            <th>TOTAL</th>
-          </tr>
-        </thead>
-        <tbody>
-<!--         @forelse($cursos as $prod)
-          <tr>
-            <td class="service">{{$prod->CURSOC_Nombre}}</td>
-            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">26</td>
-            <td class="total">$1,040.00</td>
-          </tr>
-          @empty
-            <p><i>No se han encontrado elementos en la base de datos ...</i></p>
-          @endforelse -->
-          @forelse($cursos as $item=>$prod)
-            <tr>
-              <td scope="row">{{$item+1}}</td>
-              <td class="desc">{{$prod->CURSOC_Descripcion}}</td>
-              <td class="service">{{$prod->CURSOC_Nombre}}</td>
-              <td class="unit">{{$prod->CURSOC_Costo}}</td>
-              <td class="total">{{$prod->CURSOC_Costo}}</td>
-            </tr>
-                  @empty
-                    <p><i>No se han encontrado elementos en la base de datos ...</i></p>
-                  @endforelse
-          <tr>
-            <td colspan="4">SUBTOTAL</td>
-            <td class="total">$5,200.00</td>
-          </tr>
-          <tr>
-            <td colspan="4">IGV 18%</td>
-            <td class="total">$1,300.00</td>
-          </tr>
-          <tr>
-            <td colspan="4" class="grand total">GRAND TOTAL</td>
-            <td class="grand total">$6,500.00</td>
-          </tr> 
-        </tbody>
-      </table>
       <table border="1" class="table">
     <thead class="table-dark">
         <tr>
@@ -225,17 +131,13 @@ footer {
         </tr>
     </thead>
     <tbody>
-    @forelse($cursos as $item=>$prod)
         <tr>
-            <td scope="row">{{$item+1}}</td>
-            <td class="desc">{{$prod->CURSOC_Descripcion}}</td>
-            <td class="service">{{$prod->CURSOC_Nombre}}</td>
-            <td class="unit">{{$prod->CURSOC_Costo}}</td>
-            <td class="total">{{$prod->CURSOC_Costo}}</td>
-        </tr>
-        @empty
-                    <p><i>No se han encontrado elementos en la base de datos ...</i></p>
-        @endforelse   
+            <td scope="row">{{$solicitantes->id}}</td>
+            <td class="desc">{{$solicitantes->SOLIC_Nombre}}</td>
+            <td class="service">{{$solicitantes->SOLIC_Ruc}}</td>
+            <td class="unit">{{$solicitantes->SOLIC_Direccion}}</td>
+            <td class="total">{{$solicitantes->SOLIC_Telefono}}</td>
+        </tr> 
     </tbody>
     <tfoot class="table-dark">
         <tr>
@@ -264,56 +166,3 @@ footer {
     </footer>
   </body>
 </html>
-
-
-<!-- <html>
-<head>
-    <style>
-        @page {
-            margin: 0cm 0cm;
-            font-family: Arial;
-        }
- 
-        body {
-            margin: 3cm 2cm 2cm;
-        }
- 
-        header {
-            position: fixed;
-            top: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 2cm;
-            background-color: #2a0927;
-            color: white;
-            text-align: center;
-            line-height: 30px;
-        }
- 
-        footer {
-            position: fixed;
-            bottom: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 2cm;
-            background-color: #2a0927;
-            color: white;
-            text-align: center;
-            line-height: 35px;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <h1>Styde.net</h1>
-</header>
- 
-<main>
-    <h1>Contenido</h1>
-</main>
- 
-<footer>
-    <h1>www.styde.net</h1>
-</footer>
-</body>
-</html> -->

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Solicitante;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use Redirect;
 
 class SolicitanteController extends Controller
@@ -65,6 +66,23 @@ class SolicitanteController extends Controller
         $solicitante->SOLIC_Contacto  = $request->contacto;
         $solicitante->save();
         return redirect::to('/solicitante');
+    }
+
+    public function show($id)
+    {
+        $solicitantes = Solicitante::find($id);
+        $view = view('admin.solicitante.show', compact('solicitantes'));
+        $pdf = PDF::loadView('admin.solicitante.show', compact('solicitantes'));
+        return $pdf->download('reporte_de_solicitantes.pdf');
+
+    }
+
+    public function exportPdf()
+    {
+        $solicitantes = Solicitante::get();
+        $pdf = PDF::loadView('pdf.cotizaciones', compact('solicitantes'));
+
+        return $pdf->download('reporte_de_solicitantes.pdf');
     }
     
     public function destroy($id){

@@ -7,15 +7,20 @@ use App\Contacto;
 use App\Cotizacion;
 use App\Equipo;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use Redirect;
 
 class EnsayoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function exportPdf()
+    {
+        $cotizaciones = Cotizacion::get();
+        $contacto = Contacto::get();
+        $solicitante = Solicitante::get();
+        $pdf = PDF::loadView('pdf.cotizaciones', compact('cotizaciones','contacto','solicitante'));
+
+        return $pdf->download('cotizaciones-list.pdf');
+    }
     public function index()
     {
         //

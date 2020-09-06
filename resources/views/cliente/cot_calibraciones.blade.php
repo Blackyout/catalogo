@@ -241,7 +241,7 @@ Universidad Nacional de Ingeniería')
         <br>
         <br>
         <br>
-
+            <div><a class="btn btn-dark" style="margin-left: 70px;" href="{{ route('cotizaciones.pdf') }}">Generar Reporte</a></div>
 
     <center>
         <button type="submit" class="btn btn-outline-success btn-lg edward" data-toggle="modal" data-target="#" id="boton_modal"

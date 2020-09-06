@@ -2267,12 +2267,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-//
-//
-//
-=======
->>>>>>> ecd2143599be59d717e8756a7e2062848d23fccc
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -52127,8 +52121,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Apache24\htdocs\catalogo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Apache24\htdocs\catalogo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\laravel-apps\Reportes\catalogo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel-apps\Reportes\catalogo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

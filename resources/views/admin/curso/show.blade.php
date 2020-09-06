@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Cotizacion Nº 01</title>
+    <title>Curso N° {{$producto->id}}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
 .clearfix:after {
@@ -178,28 +178,13 @@ footer {
           </tr>
         </thead>
         <tbody>
-<!--         @forelse($cursos as $prod)
-          <tr>
-            <td class="service">{{$prod->CURSOC_Nombre}}</td>
-            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">26</td>
-            <td class="total">$1,040.00</td>
-          </tr>
-          @empty
-            <p><i>No se han encontrado elementos en la base de datos ...</i></p>
-          @endforelse -->
-          @forelse($cursos as $item=>$prod)
             <tr>
-              <td scope="row">{{$item+1}}</td>
-              <td class="desc">{{$prod->CURSOC_Descripcion}}</td>
-              <td class="service">{{$prod->CURSOC_Nombre}}</td>
-              <td class="unit">{{$prod->CURSOC_Costo}}</td>
-              <td class="total">{{$prod->CURSOC_Costo}}</td>
+              <td scope="row">{{$producto->id}}</td>
+              <td class="desc">{{$producto->CURSOC_Descripcion}}</td>
+              <td class="service">{{$producto->CURSOC_Nombre}}</td>
+              <td class="unit">{{$producto->CURSOC_Costo}}</td>
+              <td class="total">{{$producto->CURSOC_Costo}}</td>
             </tr>
-                  @empty
-                    <p><i>No se han encontrado elementos en la base de datos ...</i></p>
-                  @endforelse
           <tr>
             <td colspan="4">SUBTOTAL</td>
             <td class="total">$5,200.00</td>
@@ -225,17 +210,13 @@ footer {
         </tr>
     </thead>
     <tbody>
-    @forelse($cursos as $item=>$prod)
         <tr>
-            <td scope="row">{{$item+1}}</td>
-            <td class="desc">{{$prod->CURSOC_Descripcion}}</td>
-            <td class="service">{{$prod->CURSOC_Nombre}}</td>
-            <td class="unit">{{$prod->CURSOC_Costo}}</td>
-            <td class="total">{{$prod->CURSOC_Costo}}</td>
-        </tr>
-        @empty
-                    <p><i>No se han encontrado elementos en la base de datos ...</i></p>
-        @endforelse   
+            <td scope="row">{{$producto->id}}</td>
+            <td class="desc">{{$producto->CURSOC_Descripcion}}</td>
+            <td class="service">{{$producto->CURSOC_Nombre}}</td>
+            <td class="unit">{{$producto->CURSOC_Costo}}</td>
+            <td class="total">{{$producto->CURSOC_Costo}}</td>
+        </tr> 
     </tbody>
     <tfoot class="table-dark">
         <tr>
